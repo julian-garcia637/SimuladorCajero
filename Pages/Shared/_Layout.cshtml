@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MAZE BANK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-b8R8Vg3LRNvKcJsteVEh9UpAJZciV06P88GJEqn3Ejj6inUeJ8V+RaHcRUW2KIiMzH6I0X58F3RDeo63HgV7iw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" integrity="sha384-QAtCGdZ4VfqakiobP6KyHR+Y6SY3nGXf0Br6iJy9VEY2CMsF0mdRm4BhaL/2La8V" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SimuladorCajero.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="app-header">
+        <div class="layout-shell header-inner">
+            <a class="brand-badge" asp-page="/Index">
+                <span class="brand-icon" aria-hidden="true">
+                    <i class="ri-bank-card-2-line"></i>
+                </span>
+                <div>
+                    <span class="brand-title">MAZE BANK</span><br />
+                    <small>Tu plata libre, segura y digital</small>
+                </div>
+            </a>
+            <button class="menu-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">
+                <span class="sr-only">Abrir menú</span>
+                <i class="ri-menu-3-line" aria-hidden="true"></i>
+            </button>
+            <nav aria-label="Menú principal">
+                <ul class="nav-links" id="primary-nav" data-nav-links>
+                    <li><a class="menu-link" asp-page="/Index">Inicio</a></li>
+                    <li><a class="menu-link" asp-page="/Account/Login">Entrar</a></li>
+                    <li><a class="menu-link" asp-page="/Account/Register">Registrarse</a></li>
+                    <li><a class="menu-link" asp-page="/Transacciones/Index">Transacciones</a></li>
+                    <li><a class="menu-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a asp-page="/Account/Login" class="btn btn-secondary btn-sm">
+                    <i class="ri-login-box-line" aria-hidden="true"></i>
+                    Entrar
+                </a>
+                <a asp-page="/Account/Register" class="btn btn-primary btn-sm">
+                    <i class="ri-user-add-line" aria-hidden="true"></i>
+                    Crear cuenta
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="contacto" class="footer-empresa" role="contentinfo">
+        <div class="layout-shell">
+            <strong>MAZE BANK S.A.</strong> &copy; @DateTime.Now.Year<br />
+            Carrera 100 #45-67, Bogotá, Colombia · +57 300 000 0000 · soporte@mazebank.com
+        </div>
+        <div class="footer-redes" aria-label="Redes sociales">
+            <span class="footer-icon" title="Facebook">
+                <i class="ri-facebook-fill" aria-hidden="true"></i>
+            </span>
+            <span class="footer-icon" title="X">
+                <i class="ri-twitter-x-line" aria-hidden="true"></i>
+            </span>
+            <span class="footer-icon" title="Instagram">
+                <i class="ri-instagram-line" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="footer-social-text">
+            Síguenos y recibe alertas exclusivas, seguridad y promociones.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

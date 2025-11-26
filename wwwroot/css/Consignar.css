@@ -1,0 +1,31 @@
+.transacciones-form-container {
+	width: min(520px, 100%);
+	background: linear-gradient(160deg, rgba(244, 0, 161, 0.25), rgba(41, 18, 79, 0.9));
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	padding: clamp(1.3rem, 3vw, 2.2rem);
+	border-radius: 30px;
+}
+
+.form-title {
+	text-align: center;
+	color: #fff;
+	margin-bottom: 0.4rem;
+}
+
+.form-subtitle {
+	text-align: center;
+	margin-bottom: 1.4rem;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.status-ribbon {
+	margin-top: 1.1rem;
+	padding: 0.9rem 1.1rem;
+	border-radius: 18px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}

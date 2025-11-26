@@ -1,0 +1,44 @@
+@page
+@model TransferirModel
+@{
+    ViewData["Title"] = "Transferir Dinero";
+}
+<link rel="stylesheet" href="~/css/Transferir.css" asp-append-version="true" />
+
+<section class="layout-shell">
+    <div class="transacciones-form-container">
+        <p class="badge-floating">
+            <i class="ri-exchange-dollar-line" aria-hidden="true"></i>
+            Transferencias en segundos
+        </p>
+        <h2 class="form-title">Transferir dinero</h2>
+        <form method="post" class="transfer-grid">
+            <div asp-validation-summary="ModelOnly" class="form-message"></div>
+            <div class="form-group">
+                <label asp-for="CuentaDestinoId">Cuenta destino (ID)</label>
+                <input asp-for="CuentaDestinoId" class="form-control" required />
+                <span asp-validation-for="CuentaDestinoId" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monto">Monto a transferir</label>
+                <input asp-for="Monto" class="form-control" min="1" step="0.01" required />
+                <span asp-validation-for="Monto" class="form-message"></span>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Transferir</button>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Mensaje))
+            {
+                <div class="form-message">@Model.Mensaje</div>
+            }
+            @if (Model.NuevoSaldo.HasValue)
+            {
+                <div class="form-success">Nuevo saldo: $@Model.NuevoSaldo.Value</div>
+            }
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

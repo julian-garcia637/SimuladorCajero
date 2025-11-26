@@ -1,0 +1,31 @@
+.transacciones-header {
+	text-align: center;
+	margin: 2rem auto 1.3rem;
+}
+
+.transacciones-header p {
+	max-width: 480px;
+	margin: 0.4rem auto 0;
+}
+
+.transacciones-menu {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1rem;
+}
+
+.trans-card {
+	padding: 1rem 1.2rem;
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.03);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.trans-card i {
+	font-size: 1.4rem;
+	color: var(--mint);
+}

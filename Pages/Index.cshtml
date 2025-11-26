@@ -1,0 +1,110 @@
+﻿@page
+@{
+    ViewData["Title"] = "Bienvenido a MAZE BANK";
+}
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+
+<section class="layout-shell hero hero-wave">
+    <div class="hero-grid">
+        <div class="hero-content">
+            <p class="badge-floating">
+                <i class="ri-sparkling-2-line" aria-hidden="true"></i>
+                Ñapatón Digital · Hasta 17% de plata de vuelta
+            </p>
+            <h1 class="reveal-on-scroll">Tu plata se mueve contigo</h1>
+            <p class="hero-lead">
+                Envía, recibe y controla tu dinero con una experiencia diseñada al estilo Nequi. Seguridad bancaria, velocidad fintech y un diseño que responde perfecto en cualquier pantalla.
+            </p>
+            <div class="hero-actions">
+                <a asp-page="/Account/Login" class="btn btn-primary">
+                    <i class="ri-login-circle-line" aria-hidden="true"></i>
+                    Entrar
+                </a>
+                <a asp-page="/Account/Register" class="btn btn-secondary">
+                    <i class="ri-user-add-line" aria-hidden="true"></i>
+                    Crear cuenta
+                </a>
+            </div>
+            <div class="metrics-grid">
+                <article class="metric-card" data-tilt>
+                    <p class="metric-value">+350K</p>
+                    <small>Transacciones mensuales</small>
+                </article>
+                <article class="metric-card" data-tilt>
+                    <p class="metric-value">$17M</p>
+                    <small>Plata moviéndose cada día</small>
+                </article>
+                <article class="metric-card" data-tilt>
+                    <p class="metric-value">24/7</p>
+                    <small>Acompañamiento y soporte</small>
+                </article>
+            </div>
+        </div>
+        <div class="hero-visual" data-parallax="0.3">
+            <div class="hero-device glass-card">
+                <header class="device-head">
+                    <span class="chip">Cuenta dinámica</span>
+                    <i class="ri-more-2-fill"></i>
+                </header>
+                <div class="stats-grid">
+                    <div>
+                        <small>Saldo disponible</small>
+                        <p class="metric-value">$3.580.900</p>
+                    </div>
+                    <div>
+                        <small>Último movimiento</small>
+                        <p class="metric-value">$250.000</p>
+                    </div>
+                </div>
+                <div class="hero-actions" style="margin-top:1rem;">
+                    <button type="button" class="btn btn-primary">Consignar</button>
+                    <button type="button" class="btn btn-secondary">Transferir</button>
+                </div>
+            </div>
+            <div class="floating-card" data-tilt>
+                <strong><i class="ri-bank-card-line" aria-hidden="true"></i> Movimientos</strong>
+                <p>Recibiste $120.000 desde tu Nequi ¡en segundos!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="layout-shell feature-section">
+    <div class="feature-grid">
+        <article class="feature-card" data-tilt>
+            <i class="ri-lock-star-line" aria-hidden="true"></i>
+            <h3>Seguridad activa</h3>
+            <p>Autenticación dinámica, alertas instantáneas y controles inteligentes para que siempre tengas la última palabra.</p>
+        </article>
+        <article class="feature-card" data-tilt>
+            <i class="ri-smartphone-line" aria-hidden="true"></i>
+            <h3>Todo desde tu móvil</h3>
+            <p>Salta entre consignar, retirar o transferir con tarjetas y formularios diseñados para dedos y ojos felices.</p>
+        </article>
+        <article class="feature-card" data-tilt>
+            <i class="ri-swap-line" aria-hidden="true"></i>
+            <h3>Movimientos transparentes</h3>
+            <p>Visualiza tu historial con tablas responsivas, filtros y animaciones suaves para no perder detalle.</p>
+        </article>
+        <article class="feature-card" data-tilt>
+            <i class="ri-customer-service-2-line" aria-hidden="true"></i>
+            <h3>Acompañamiento 24/7</h3>
+            <p>Nuestro equipo y chatbot te acompañan para resolver cualquier duda sin salir de la app.</p>
+        </article>
+    </div>
+
+    <div class="support-grid">
+        <article class="support-card">
+            <strong><i class="ri-questionnaire-line" aria-hidden="true"></i> ¿Dudas con tu cuenta?</strong>
+            <p>Escríbenos y te guiamos paso a paso.</p>
+        </article>
+        <article class="support-card">
+            <strong><i class="ri-plane-line" aria-hidden="true"></i> Usa tu plata donde quieras</strong>
+            <p>Pagos y retiros dentro y fuera de Colombia sin enredos.</p>
+        </article>
+        <article class="support-card">
+            <strong><i class="ri-customer-service-fill" aria-hidden="true"></i> Centro de ayuda</strong>
+            <p>Tips, tutoriales y noticias para que sigas sacándole jugo a MAZE BANK.</p>
+        </article>
+    </div>
+</section>

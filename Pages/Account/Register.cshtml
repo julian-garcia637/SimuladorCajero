@@ -1,0 +1,79 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registro de Usuario";
+}
+<link rel="stylesheet" href="~/css/Register.css" asp-append-version="true" />
+
+<section class="layout-shell register-shell">
+    <section class="register-panel">
+    <h2 class="form-title">Crea tu cuenta MAZE BANK</h2>
+        <p class="form-lead">Elige tu usuario, define tu clave y decide si quieres una cuenta de ahorros o corriente. Todo toma menos de un minuto.</p>
+        <form method="post" class="form-grid">
+            <div asp-validation-summary="ModelOnly" class="form-message"></div>
+            <div class="form-group">
+                <label asp-for="NuevoUsuario.Nombre">Nombre completo</label>
+                <input asp-for="NuevoUsuario.Nombre" class="form-control" required />
+                <span asp-validation-for="NuevoUsuario.Nombre" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoUsuario.NombreUsuario">Nombre de usuario</label>
+                <input asp-for="NuevoUsuario.NombreUsuario" class="form-control" required autocomplete="username" />
+                <span asp-validation-for="NuevoUsuario.NombreUsuario" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoUsuario.Email">Correo electrónico</label>
+                <input asp-for="NuevoUsuario.Email" type="email" class="form-control" required autocomplete="email" />
+                <span asp-validation-for="NuevoUsuario.Email" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoUsuario.Celular">Celular</label>
+                <input asp-for="NuevoUsuario.Celular" type="tel" class="form-control" required autocomplete="tel" />
+                <span asp-validation-for="NuevoUsuario.Celular" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NuevoUsuario.Contraseña">Crea tu clave</label>
+                <input asp-for="NuevoUsuario.Contraseña" type="password" class="form-control" required autocomplete="new-password" />
+                <span asp-validation-for="NuevoUsuario.Contraseña" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmarClave">Confirma tu clave</label>
+                <input asp-for="ConfirmarClave" type="password" class="form-control" required autocomplete="new-password" />
+                <span asp-validation-for="ConfirmarClave" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label>¿Qué tipo de cuenta quieres?</label>
+                <div class="radio-chips">
+                    <input type="radio" id="ahorros" name="TipoCuenta" value="Ahorros" @(Model.TipoCuenta == "Ahorros" ? "checked" : string.Empty) required />
+                    <label class="radio-chip" for="ahorros">Ahorros</label>
+                    <input type="radio" id="corriente" name="TipoCuenta" value="Corriente" @(Model.TipoCuenta == "Corriente" ? "checked" : string.Empty) required />
+                    <label class="radio-chip" for="corriente">Corriente</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">¡Listo! Crear cuenta</button>
+            @if (!string.IsNullOrEmpty(Model.Mensaje))
+            {
+                <div class="form-message">@Model.Mensaje</div>
+            }
+        </form>
+    </section>
+
+    <aside class="register-panel" aria-label="Beneficios destacados">
+        <div class="plan-card">
+            <strong><i class="ri-bank-card-2-line" aria-hidden="true"></i> Control total</strong>
+            <p>Define topes, recibe alertas y consulta tus movimientos en tiempo real.</p>
+        </div>
+        <div class="plan-card">
+            <strong><i class="ri-cash-line" aria-hidden="true"></i> Sobregiro y ahorros</strong>
+            <p>Escoge el tipo de cuenta perfecto: intereses para tu plata o cupo flexible para tus pagos.</p>
+        </div>
+        <div class="plan-card">
+            <strong><i class="ri-team-line" aria-hidden="true"></i> Compartir sin enredos</strong>
+            <p>Transfiere a tus contactos guardados, agrégalos como favoritos y automatiza pagos frecuentes.</p>
+        </div>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,26 @@
+@import url('Consignar.css');
+
+.transacciones-form-container {
+	background: linear-gradient(150deg, rgba(76, 241, 249, 0.2), rgba(32, 6, 60, 0.92));
+}
+
+.transfer-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+@media (min-width: 640px) {
+	.transfer-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.destination-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.4rem 1rem;
+	border-radius: var(--radius-full);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	margin-bottom: 0.6rem;
+}

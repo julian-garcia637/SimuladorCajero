@@ -1,0 +1,10 @@
+@import url('Consignar.css');
+
+.transacciones-form-container {
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: linear-gradient(140deg, rgba(255, 196, 0, 0.12), rgba(28, 11, 60, 0.92));
+}
+
+.form-title i {
+	color: var(--warning);
+}

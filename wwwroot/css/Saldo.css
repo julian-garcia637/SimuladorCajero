@@ -1,0 +1,21 @@
+.transacciones-form-container {
+	text-align: center;
+	width: min(420px, 100%);
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	padding: 1.8rem 1.4rem;
+	border-radius: 28px;
+}
+
+.saldo-valor {
+	font-size: 1rem;
+	color: var(--text-muted);
+}
+
+.saldo-monto {
+	font-size: clamp(2rem, 4vw, 2.6rem);
+	font-weight: 800;
+	color: var(--mint);
+	display: block;
+	margin-top: 0.35rem;
+}

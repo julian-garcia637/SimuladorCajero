@@ -1,0 +1,59 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+
+<section class="layout-shell auth-shell">
+    <section class="auth-panel">
+        <h2 class="form-title">Iniciar sesión</h2>
+    <p class="form-lead">Controla tu plata en segundos, con la misma vibra de MAZE BANK y la seguridad de MAZE BANK.</p>
+        <form method="post" class="form-grid">
+            <div asp-validation-summary="ModelOnly" class="form-message"></div>
+            <div class="form-group">
+                <label asp-for="Usuario">Usuario</label>
+                <input asp-for="Usuario" class="form-control" autocomplete="username" required />
+                <span asp-validation-for="Usuario" class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clave">Contraseña</label>
+                <input asp-for="Clave" type="password" class="form-control" autocomplete="current-password" required />
+                <span asp-validation-for="Clave" class="form-message"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            @if (!string.IsNullOrEmpty(Model.Mensaje))
+            {
+                <div class="form-message">@Model.Mensaje</div>
+            }
+        </form>
+    </section>
+
+    <aside class="auth-panel auth-benefits" aria-label="Beneficios de MAZE BANK">
+        <div class="benefit-item">
+            <i class="ri-flashlight-line" aria-hidden="true"></i>
+            <div>
+                <strong>Operaciones instantáneas</strong>
+                <p>Consigna, retira y transfiere con una interfaz fluida.</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <i class="ri-shield-keyhole-line" aria-hidden="true"></i>
+            <div>
+                <strong>Doble seguridad</strong>
+                <p>Alertas en tiempo real y monitoreo permanente.</p>
+            </div>
+        </div>
+        <div class="benefit-item">
+            <i class="ri-customer-service-2-line" aria-hidden="true"></i>
+            <div>
+                <strong>Estamos 24/7</strong>
+                <p>Escríbenos en chat, línea o redes cuando lo necesites.</p>
+            </div>
+        </div>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

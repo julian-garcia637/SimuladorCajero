@@ -1,0 +1,45 @@
+@page
+@model TransaccionesIndexModel
+@{
+    ViewData["Title"] = "Menú principal";
+}
+<link rel="stylesheet" href="~/css/TransaccionesIndex.css" asp-append-version="true" />
+
+<section class="layout-shell">
+    <div class="transacciones-header">
+        <h2>Menú principal</h2>
+        <p>Selecciona una opción para operar con tu cuenta. Todo es rápido, seguro y muy visual.</p>
+    </div>
+    <div class="transacciones-menu">
+        <a asp-page="/Transacciones/Consignar" class="trans-card" data-tilt>
+            <i class="ri-download-cloud-2-line" aria-hidden="true"></i>
+            <strong>Consignar</strong>
+            <span>Agrega plata a tu cuenta en segundos.</span>
+        </a>
+        <a asp-page="/Transacciones/Retirar" class="trans-card" data-tilt>
+            <i class="ri-upload-cloud-2-line" aria-hidden="true"></i>
+            <strong>Retirar</strong>
+            <span>Solicita tu retiro con seguimiento en vivo.</span>
+        </a>
+        <a asp-page="/Transacciones/Saldo" class="trans-card" data-tilt>
+            <i class="ri-money-dollar-circle-line" aria-hidden="true"></i>
+            <strong>Consultar saldo</strong>
+            <span>Visualiza tu plata disponible al instante.</span>
+        </a>
+        <a asp-page="/Transacciones/Movimientos" class="trans-card" data-tilt>
+            <i class="ri-line-chart-line" aria-hidden="true"></i>
+            <strong>Ver movimientos</strong>
+            <span>Historial súper claro y exportable.</span>
+        </a>
+        <a asp-page="/Transacciones/Transferir" class="trans-card" data-tilt>
+            <i class="ri-exchange-dollar-line" aria-hidden="true"></i>
+            <strong>Transferir</strong>
+            <span>Envía a otras cuentas MAZE BANK sin costo.</span>
+        </a>
+        <a asp-page="/Account/Login" class="trans-card" data-tilt>
+            <i class="ri-logout-circle-r-line" aria-hidden="true"></i>
+            <strong>Salir</strong>
+            <span>Vuelve cuando quieras.</span>
+        </a>
+    </div>
+</section>
