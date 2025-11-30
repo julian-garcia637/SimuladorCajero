@@ -1,0 +1,229 @@
+@page
+@model MisTarjetasModel
+@{
+    ViewData["Title"] = "Mis Tarjetas";
+}
+<link rel="stylesheet" href="~/css/MisTarjetas.css" asp-append-version="true" />
+
+<section class="cards-shell">
+    <header class="cards-header">
+        <div>
+            <p class="eyebrow">MAZE BANK</p>
+            <h1>Mis Tarjetas</h1>
+            <p class="lede">Administra tus tarjetas de crédito y débito con la estética fluida y segura de MAZE BANK.</p>
+        </div>
+        <div class="balance-pill" aria-live="polite">
+            <span>Disponible</span>
+            <strong>$ 12.480.000</strong>
+        </div>
+    </header>
+
+    <div class="cards-grid">
+        <article class="cards-panel credit-panel">
+            <button class="credit-toggle" type="button" aria-expanded="false">
+                <div>
+                    <span class="eyebrow">Tarjetas</span>
+                    <strong>Tarjetas de Crédito</strong>
+                </div>
+                <span class="chevron" aria-hidden="true"></span>
+            </button>
+
+            <div class="credit-panel-body" hidden>
+                <p class="panel-hint">Tienes @Model.AvailableCreditCards.Count tarjetas habilitadas. La principal es tu American Express Green.</p>
+
+                <div class="virtual-card-wrapper">
+                    <div class="card-visibility" role="group" aria-label="Control de visibilidad de datos">
+                        <span>Datos sensibles</span>
+                        <button class="eye-toggle" type="button" aria-pressed="false" data-eye-toggle>
+                            <span class="sr-only">Mostrar datos de la tarjeta</span>
+                            <i class="eye-icon ri-eye-off-line" aria-hidden="true" data-eye-icon></i>
+                        </button>
+                    </div>
+                    <div class="amex-card" role="button" tabindex="0" aria-pressed="false" data-card
+                         data-number-mask="@Model.ActiveCreditCard.MaskedNumber"
+                         data-number-full="@Model.ActiveCreditCard.Number"
+                         data-exp-mask="**/**"
+                         data-exp-full="@Model.ActiveCreditCard.Expiry"
+                         data-cvv-mask="***"
+                         data-cvv-full="@Model.ActiveCreditCard.Cvv">
+                        <div class="card-face card-face-front">
+                            <img src="~/img/amex-maze.jpg" alt="Tarjeta exclusiva MAZE Bank" class="amex-card-photo" />
+                            <div class="amex-card-overlay">
+                                <div class="amex-card__header">
+                                    <span class="amex-wordmark">AMERICAN EXPRESS</span>
+                                    <div class="amex-affiliate">
+                                        <span>Bancolombia</span>
+                                        <span class="amex-contactless" aria-hidden="true"></span>
+                                        <span class="amex-terminal">7997</span>
+                                    </div>
+                                </div>
+                                <div class="amex-body">
+                                    <div class="amex-chip" aria-hidden="true"></div>
+                                    <div class="amex-centurion" aria-hidden="true"></div>
+                                </div>
+                                <div class="amex-number" data-field="number">@Model.ActiveCreditCard.MaskedNumber</div>
+                                <div class="amex-meta">
+                                    <div>
+                                        <span class="label">VALID THRU</span>
+                                        <strong data-field="expiry">**/**</strong>
+                                    </div>
+                                    <div>
+                                        <span class="label">MEMBER SINCE</span>
+                                        <strong>09</strong>
+                                    </div>
+                                </div>
+                                <div class="amex-holder">
+                                    <span class="label">C F FROST</span>
+                                    <strong>@Model.ActiveCreditCard.Holder</strong>
+                                </div>
+                                <div class="amex-card-emboss amex-card-emboss--number" aria-hidden="true">
+                                    4523&nbsp;9182&nbsp;6007&nbsp;3144
+                                </div>
+                                <div class="amex-card-emboss amex-card-emboss--expiry" aria-hidden="true">
+                                    08/32
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-face card-face-back" aria-hidden="true">
+                            <div class="amex-back-top">
+                                <div class="amex-engraving"></div>
+                                <div class="amex-serial">7997</div>
+                            </div>
+                            <div class="amex-magnet"></div>
+                            <div class="amex-signature">
+                                <div>
+                                    <span class="label">Firma</span>
+                                    <strong>@Model.ActiveCreditCard.Holder</strong>
+                                </div>
+                                <div class="amex-cvv">
+                                    <span class="label">CID</span>
+                                    <strong data-field="cvv">***</strong>
+                                </div>
+                            </div>
+                            <p class="amex-contact">
+                                Servicio 24H: 01-800-522-4860 · Intl: +1 305 393 1111 · americanexpress.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="card-list" aria-label="Tarjetas disponibles">
+                    @foreach (var card in Model.AvailableCreditCards)
+                    {
+                        <li>
+                            <div class="card-chip">
+                                <span>@card.Brand</span>
+                                <strong>@card.Alias</strong>
+                                <small>•••• @card.LastDigits</small>
+                            </div>
+                            <button class="ghost-btn" type="button">Solicitar virtual</button>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </article>
+
+        <article class="cards-panel debit-panel">
+            <header>
+                <p class="eyebrow">Cuenta Corriente</p>
+                <h2>Tarjeta de Débito</h2>
+                <p class="panel-hint">Lista para tus compras del día a día, conectada a tu saldo MAZE BANK.</p>
+            </header>
+            <div class="debit-card">
+                <div class="card-chip"></div>
+                <div>
+                    <span class="label">Titular</span>
+                    <strong>@Model.DebitCard.Holder</strong>
+                </div>
+                <div>
+                    <span class="label">Cuenta</span>
+                    <strong>**** **** @Model.DebitCard.LastDigits</strong>
+                </div>
+                <div class="maze-glyph">MAZE BANK</div>
+            </div>
+            <ul class="perk-list">
+                <li>
+                    <strong>Retiros gratis</strong>
+                    <p>2 retiros mensuales sin costo en cajeros MAZE.</p>
+                </li>
+                <li>
+                    <strong>Control instantáneo</strong>
+                    <p>Congela y reactiva tu débito en un toque.</p>
+                </li>
+            </ul>
+        </article>
+    </div>
+
+    <article class="credit-education" id="tarjeta-credito">
+        <header>
+            <p class="eyebrow">3. Tarjeta de Crédito</p>
+            <h2>Controla tus compras a cuotas con reglas claras</h2>
+            <p class="lede">
+                Una Tarjeta de Crédito es un medio de pago que te permite hacer compras y retirar efectivo (adelantos)
+                utilizando dinero prestado por el banco: tu línea de crédito.
+            </p>
+        </header>
+
+        <div class="credit-education-grid">
+            <div>
+                <h3>Propósito</h3>
+                <p>Financiar compras, manejar emergencias o construir tu historial crediticio.</p>
+            </div>
+            <div>
+                <h3>Funcionamiento</h3>
+                <p>
+                    El banco te asigna un límite de crédito (la cantidad máxima que puedes gastar). Cada vez que usas la tarjeta
+                    acumulas una deuda que debes pagar en la fecha límite indicada en tu extracto.
+                </p>
+            </div>
+        </div>
+
+        <ul class="credit-rules">
+            <li><strong>0 %</strong> de interés cuando la compra se difiere a máximo 2 cuotas.</li>
+            <li><strong>1.9 %</strong> mensual si la transacción se difiere hasta 6 cuotas.</li>
+            <li><strong>2.3 %</strong> mensual cuando la compra supera las 7 cuotas.</li>
+            <li>Cada transacción detalla su pago mensual proyectado.</li>
+        </ul>
+
+        <div class="credit-transactions-card">
+            <header>
+                <div>
+                    <p class="eyebrow">Pagos diferidos</p>
+                    <h3>Transacciones y cuota mensual estimada</h3>
+                    <p class="panel-hint">Calculamos el interés simple multiplicando la tasa mensual por el número de cuotas.</p>
+                </div>
+            </header>
+            <div class="table-shell credit-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Monto</th>
+                            <th>Cuotas</th>
+                            <th>Interés mensual</th>
+                            <th>Interés total</th>
+                            <th>Pago mensual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var transaccion in Model.CreditTransactions)
+                    {
+                        <tr>
+                            <td>@transaccion.Concepto</td>
+                            <td>@transaccion.Monto.ToString("C0")</td>
+                            <td>@transaccion.Cuotas</td>
+                            <td>@transaccion.RatePercent.ToString("0.0")%</td>
+                            <td>@transaccion.TotalInterest.ToString("C0")</td>
+                            <td class="highlight">@transaccion.PagoMensual.ToString("C0")</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </article>
+</section>
+
+@section Scripts {
+    <script src="~/js/MisTarjetas.js" asp-append-version="true"></script>
+}

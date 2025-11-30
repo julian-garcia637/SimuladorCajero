@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">MAZE BANK icon</title>
+  <desc id="desc">Rounded square with gradient background and stylized MB initials</desc>
+  <defs>
+    <linearGradient id="mbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3cac" />
+      <stop offset="45%" stop-color="#784ba0" />
+      <stop offset="100%" stop-color="#2b86c5" />
+    </linearGradient>
+    <linearGradient id="mbStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#b0f1ff" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#mbGradient)" />
+  <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" />
+  <path d="M28 86V34h10l12 22 12-22h10v52h-10V53L52 74h-4L38 53v33H28zm52 0V34h22c8 0 14 6 14 14 0 5-3 10-8 12 6 2 9 7 9 13 0 9-7 13-16 13H80zm10-32h11c3 0 6-2 6-6s-2-6-6-6H90v12zm0 22h12c4 0 7-2 7-6s-3-6-7-6H90v12z" fill="url(#mbStroke)" />
+</svg>

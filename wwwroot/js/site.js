@@ -65,4 +65,15 @@
 			document.documentElement.style.setProperty('--dynamic-hue', hue.toString());
 		}, 120);
 	}
+
+	const backButton = document.querySelector('[data-back-button]');
+	if (backButton) {
+		backButton.addEventListener('click', () => {
+			if (window.history.length > 1) {
+				window.history.back();
+			} else {
+				window.location.href = '/';
+			}
+		});
+	}
 })();

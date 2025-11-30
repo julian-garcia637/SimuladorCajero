@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Benjamin Franklin style portrait</title>
+  <desc id="desc">Minimal line illustration inspired by Benjamin Franklin profile</desc>
+  <defs>
+    <linearGradient id="franklinSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d7b5" />
+      <stop offset="100%" stop-color="#d7a675" />
+    </linearGradient>
+    <linearGradient id="franklinCoat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4d6a5b" />
+      <stop offset="100%" stop-color="#26372f" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="40" fill="rgba(255,255,255,0.05)" />
+  <path d="M80 38c-20 6-32 44-28 70 4 26 16 46 36 52 14 4 28 5 42-8 14-12 23-32 19-56-4-24-19-51-48-60a57 57 0 0 0-21 2z" fill="url(#franklinSkin)" stroke="#2a1f16" stroke-width="3" stroke-linejoin="round" />
+  <path d="M73 70c-10 22-11 44-5 66 5 16 13 26 25 31" fill="none" stroke="#2a1f16" stroke-width="3" stroke-linecap="round"/>
+  <path d="M130 59c8 9 15 21 18 34 7 30-8 65-33 77" fill="none" stroke="#2a1f16" stroke-width="3" stroke-linecap="round" />
+  <path d="M78 60c-2 6 1 12 6 16 5 3 12 3 17-1 4-3 6-7 6-14" fill="none" stroke="#2a1f16" stroke-width="3" />
+  <circle cx="96" cy="96" r="5" fill="#2a1f16" />
+  <path d="M110 112c-4 6-10 10-18 11" fill="none" stroke="#2a1f16" stroke-width="3" stroke-linecap="round" />
+  <path d="M74 134c12 18 44 22 66 10" fill="none" stroke="#2a1f16" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 6" />
+  <path d="M70 150c20 18 48 18 72 0" fill="none" stroke="url(#franklinCoat)" stroke-width="12" stroke-linecap="round" opacity="0.7" />
+</svg>

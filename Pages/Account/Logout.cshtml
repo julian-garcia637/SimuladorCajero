@@ -1,0 +1,15 @@
+@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Cerrar sesión";
+}
+
+<section class="layout-shell auth-shell">
+    <div class="auth-panel">
+        <h2>Estás cerrando sesión</h2>
+        <p>Por seguridad limpiamos tus datos y te llevamos de vuelta al inicio de sesión.</p>
+        <form method="post">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </form>
+    </div>
+</section>
