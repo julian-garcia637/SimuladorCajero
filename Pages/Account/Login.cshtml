@@ -9,6 +9,10 @@
     <section class="auth-panel">
         <h2 class="form-title">Iniciar sesión</h2>
     <p class="form-lead">Controla tu plata en segundos, con la misma vibra de MAZE BANK y la seguridad de MAZE BANK.</p>
+        @if (TempData["AuthMessage"] is string authMessage && !string.IsNullOrWhiteSpace(authMessage))
+        {
+            <div class="form-alert success" role="status">@authMessage</div>
+        }
         <form method="post" class="form-grid">
             <div asp-validation-summary="ModelOnly" class="form-message"></div>
             <div class="form-group">

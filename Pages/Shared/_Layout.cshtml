@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="~/SimuladorCajero.styles.css" asp-append-version="true" />
 </head>
 <body>
+    @{
+        var usuarioId = Context.Session.GetInt32("UsuarioId");
+        var usuarioNombre = Context.Session.GetString("UsuarioNombre");
+        var isAuthenticated = usuarioId.HasValue;
+    }
     <header class="app-header">
         <div class="layout-shell header-inner">
             <a class="brand-badge" asp-page="/Index">
@@ -32,21 +37,38 @@
                 <ul class="nav-links" id="primary-nav" data-nav-links>
                     <li><a class="menu-link" asp-page="/Index">Inicio</a></li>
                     <li><a class="menu-link" asp-page="/MisTarjetas">Mis tarjetas</a></li>
-                    @* <li><a class="menu-link" asp-page="/Account/Login">Entrar</a></li>
-                    <li><a class="menu-link" asp-page="/Account/Register">Registrarse</a></li>
-                    <li><a class="menu-link" asp-page="/Transacciones/Index">Transacciones</a></li> *@
+                    @if (isAuthenticated)
+                    {
+                        <li><a class="menu-link" asp-page="/Transacciones/Index">Transacciones</a></li>
+                    }
                     <li><a class="menu-link" href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
             <div class="nav-cta">
-                <a asp-page="/Account/Login" class="btn btn-secondary btn-sm">
-                    <i class="ri-login-box-line" aria-hidden="true"></i>
-                    Entrar
-                </a>
-                <a asp-page="/Account/Register" class="btn btn-primary btn-sm">
-                    <i class="ri-user-add-line" aria-hidden="true"></i>
-                    Crear cuenta
-                </a>
+                @if (!isAuthenticated)
+                {
+                    <a asp-page="/Account/Login" class="btn btn-secondary btn-sm">
+                        <i class="ri-login-box-line" aria-hidden="true"></i>
+                        Entrar
+                    </a>
+                    <a asp-page="/Account/Register" class="btn btn-primary btn-sm">
+                        <i class="ri-user-add-line" aria-hidden="true"></i>
+                        Crear cuenta
+                    </a>
+                }
+                else
+                {
+                    <div class="nav-user-chip" aria-live="polite">
+                        <i class="ri-user-3-line" aria-hidden="true"></i>
+                        <span>@(string.IsNullOrWhiteSpace(usuarioNombre) ? "Usuario Maze" : usuarioNombre)</span>
+                    </div>
+                    <form method="post" asp-page="/Account/Logout" class="nav-logout-form">
+                        <button type="submit" class="btn btn-secondary btn-sm">
+                            <i class="ri-logout-circle-r-line" aria-hidden="true"></i>
+                            Cerrar sesión
+                        </button>
+                    </form>
+                }
             </div>
         </div>
     </header>

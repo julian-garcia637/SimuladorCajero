@@ -2,12 +2,19 @@
 @model LogoutModel
 @{
     ViewData["Title"] = "Cerrar sesión";
+    var nombre = HttpContext.Session.GetString("UsuarioNombre");
 }
 
 <section class="layout-shell auth-shell">
     <div class="auth-panel">
         <h2>Estás cerrando sesión</h2>
-        <p>Por seguridad limpiamos tus datos y te llevamos de vuelta al inicio de sesión.</p>
+        <p>
+            @if (!string.IsNullOrEmpty(nombre))
+            {
+                <text>@nombre, </text>
+            }
+            por seguridad limpiamos tus datos y te llevamos de vuelta al inicio de sesión.
+        </p>
         <form method="post">
             <button type="submit" class="btn btn-primary">Confirmar</button>
         </form>

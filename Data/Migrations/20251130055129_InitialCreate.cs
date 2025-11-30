@@ -17,10 +17,11 @@ namespace SimuladorCajero.Data.Migrations
                 {
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NombreUsuario = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Contraseña = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
+                    Celular = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,8 +57,8 @@ namespace SimuladorCajero.Data.Migrations
                 {
                     TarjetaCreditoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NumeroTarjeta = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Clave = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumeroTarjeta = table.Column<string>(type: "nvarchar(19)", maxLength: 19, nullable: false),
+                    Clave = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
                     Cupo = table.Column<double>(type: "float", nullable: false),
                     Deuda = table.Column<double>(type: "float", nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
@@ -80,7 +81,7 @@ namespace SimuladorCajero.Data.Migrations
                     TransaccionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Concepto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Concepto = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Valor = table.Column<double>(type: "float", nullable: false),
                     CuentaId = table.Column<int>(type: "int", nullable: false)
                 },

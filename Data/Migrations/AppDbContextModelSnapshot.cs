@@ -63,7 +63,8 @@ namespace SimuladorCajero.Data.Migrations
 
                     b.Property<string>("Clave")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<double>("Cupo")
                         .HasColumnType("float");
@@ -73,7 +74,8 @@ namespace SimuladorCajero.Data.Migrations
 
                     b.Property<string>("NumeroTarjeta")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(19)
+                        .HasColumnType("nvarchar(19)");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
@@ -96,7 +98,8 @@ namespace SimuladorCajero.Data.Migrations
 
                     b.Property<string>("Concepto")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
 
                     b.Property<int>("CuentaId")
                         .HasColumnType("int");
@@ -124,23 +127,28 @@ namespace SimuladorCajero.Data.Migrations
 
                     b.Property<string>("Celular")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Contraseña")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("NombreUsuario")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("UsuarioId");
 
@@ -207,11 +215,9 @@ namespace SimuladorCajero.Data.Migrations
 
             modelBuilder.Entity("Usuario", b =>
                 {
-                    b.Navigation("Cuenta")
-                        .IsRequired();
+                    b.Navigation("Cuenta");
 
-                    b.Navigation("TarjetaCredito")
-                        .IsRequired();
+                    b.Navigation("TarjetaCredito");
                 });
 #pragma warning restore 612, 618
         }

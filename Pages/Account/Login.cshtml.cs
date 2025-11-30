@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SimuladorCajero.Data.Context;
@@ -50,6 +51,7 @@ public class LoginModel : PageModel
 
         // Guardar el usuarioId en la sesi髇
         HttpContext.Session.SetInt32("UsuarioId", user.UsuarioId);
+        HttpContext.Session.SetString("UsuarioNombre", user.Nombre);
 
         return RedirectToPage("/Transacciones/Index");
     }

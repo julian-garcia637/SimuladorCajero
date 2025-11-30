@@ -46,7 +46,7 @@ public class MisTarjetasModel : PageModel
             Cvv: "000",
             Type: CardType.Debit);
 
-    CreditTransactions = BuildCreditTransactions();
+        CreditTransactions = BuildCreditTransactions();
     }
 
     public record VirtualCard(
